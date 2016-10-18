@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
+<script
+  src="http://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="sha384-VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script>
+<script src="https://use.fontawesome.com/7cea856565.js"></script>
+	<title>Transfer Money</title>
+</head>
+<body style="padding-top: 80px;">
+<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+      <a class="navbar-brand" href="#">UPS</a>
+      <ul class="nav navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="browse.html"><i class="fa fa-home" aria-hidden="true"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="transfermoney.html"><i class="fa fa-credit-card-alt" aria-hidden="true"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+        <li class="nav-item">
+        </li>
+      </ul>
+      <ul class="nav navbar-nav pull-right"><li>
+      	<a class="nav-link" href="index.html"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+      </li></ul>
+    </nav>
+<div id="content" class="container col-xs-12">
+
+
+<div class="row container-fluid" style="padding-left: 15px; padding-right: 15px;">
+	<h2 class="pull-left">Current Balance:</h2>
+	<h2 id="currentBalance" class="pull-right">Current</h2>
+</div>
+<br>
+
+	<script>
+	document.getElementById("currentBalance").innerHTML = "$" + Math.floor(Math.random()*30);
+	</script>
+	<!-- Top up with $___ -->
+	<label for="input1" class="pull-left">Top up with:</label>
+	<div class="input-group col-xs-5 pull-right">
+  	<span class="input-group-addon">$</span>
+  	<input style="display:inline;" type="number" class="form-control" id="money" aria-label="Amount (to the nearest dollar)" placeholder="10" min="10" max="50">
+  	<span class="input-group-addon">.00</span>
+	</div>
+	</div>
+	<!-- from -->
+     <label for "input2" class="col-xs-12 col-form-label"><br>Choose Payment method:</label>
+       <div class="btn-group-vertical col-xs-12" data-toggle="buttons" id="input2" style="padding-bottom: 20px;">
+
+        <label class="btn btn-default" style="text-align: left;">
+        <i class="fa fa-cc-mastercard" aria-hidden="true"></i>
+           <input type="radio" name="options" id="male"> MARK MILTON **** 3409
+        </label>
+
+        <label class="btn btn-default" style="text-align: left;">
+        <i class="fa fa-cc-visa" aria-hidden="true"></i>
+           <input type="radio" name="options" id="female"> RACHEL WELSBY **** 3444
+        </label>
+
+        <label class="btn btn-default" style="text-align: left;">
+        <i class="fa fa-google-wallet" aria-hidden="true"></i>
+           <input type="radio" name="options" id="female"> ANIL PATEL **** 6709
+        </label>
+
+        <label class="btn btn-info shouldCollapse" style="text-align: left;">
+        <i class="fa fa-credit-card" aria-hidden="true"></i>
+           <input type="radio" name="options" id="female"> Use a new card
+        </label>
+       
+       </div>
+
+       <script>
+		$(document).ready(function(){
+    	$(".shouldCollapse").click(function(){
+        $(".collapse").collapse('show');
+    	});
+    	$(".btn-default").click(function(){
+        $(".collapse").collapse('hide');
+    	});
+    
+		});
+		</script>
+         
+  <div id="newCard" class="collapse container">
+    <div class="row">
+		<div class="col-xs-12">
+		<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">
+				Payment Details
+			</h3>
+		<div class="checkbox pull-right">
+		<label>
+		<input type="checkbox" />
+		Remember
+		</label>
+		</div>
+		</div>
+						<div class="panel-body">
+							<form role="form">
+								<div class="form-group">
+									<label for="cardNumber">
+									Card Number</label>
+									<div class="input-group">
+										<input type="text" class="form-control" id="cardNumber" placeholder="Valid Card Number"
+										required autofocus />
+										<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-7 col-md-7">
+										<label>Expiry Date</label>
+										<div class="form-group">
+											<!-- <label for="expiryMonth">
+											Expiry Date</label> -->
+											<div class="col-xs-6 col-lg-6 pl-ziro" style="
+												padding-left: 0px;
+												">
+												<input type="text" class="form-control" id="expiryMonth" placeholder="MM" required />
+											</div>
+											<div class="col-xs-6 col-lg-6 pl-ziro">
+												<input type="text" class="form-control" id="expityYear" placeholder="YY" required /></div>
+											</div>
+										</div>
+										<div class="col-xs-5 col-md-5 pull-right">
+											<div class="form-group">
+												<label for="cvv">
+												CVV</label>
+												<input type="password" class="form-control" id="cvv" placeholder="CVV" required />
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				
+  </div>
+</div>
+<!-- I think the whole collapsible thing finishes here -->
+
+	<div>
+		<p style="text-align: center;"><a class="btn btn-info btn-lg" role="button">Submit</a></p>
+	</div>
+</body>
+</html>
